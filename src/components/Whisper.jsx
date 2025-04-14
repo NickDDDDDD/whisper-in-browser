@@ -33,14 +33,18 @@ const Whisper = () => {
   const progressEntries = Object.entries(fileProgress || {});
 
   return (
-    <div className="aspect-4/3 h-8/12 max-w-3xl rounded-2xl bg-linear-to-br from-zinc-800 to-zinc-900 p-8 text-zinc-300">
+    <div className="text- aspect-4/3 h-8/12 max-w-3xl rounded-2xl bg-linear-to-br from-zinc-800 to-zinc-900 p-4 text-zinc-200">
       {pipe ? (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-8">
-          <h1 className="text-2xl font-bold">
-            Model loaded: Xenova/whisper-base
-          </h1>
+        <div className="relative flex h-full w-full flex-col items-center justify-evenly">
+          <div className="absolute top-0 right-0 rounded-full bg-green-400 px-3 py-1">
+            <p className="text-xs font-bold text-zinc-900">
+              Model loaded: Xenova/whisper-base
+            </p>
+          </div>
           {statusMessage && (
-            <p className="text-lg font-medium">Status: {statusMessage}</p>
+            <p className="text-lg font-medium text-zinc-200">
+              Status: {statusMessage}
+            </p>
           )}
           <div className="flex w-full items-center justify-evenly">
             <button
@@ -95,7 +99,7 @@ const Whisper = () => {
           )}
         </div>
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-8">
+        <div className="flex h-full w-full flex-col items-center justify-evenly">
           <h1 className="text-2xl font-bold">
             Loading Whisper Model in Browser
           </h1>

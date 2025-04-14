@@ -99,6 +99,7 @@ export const useAudioRecorder = ({ onStop } = {}) => {
     if (mediaRecorderRef.current?.state === "recording") {
       setStatusMessage("Stopping recording...");
       mediaRecorderRef.current.stop();
+      setStatusMessage("Recording stopped.");
     }
 
     setIsRecording(false);
@@ -112,6 +113,7 @@ export const useAudioRecorder = ({ onStop } = {}) => {
       const fullBlob = new Blob(allBlobsRef.current, { type: "audio/webm" });
       const url = URL.createObjectURL(fullBlob);
       setFullRecordingUrl(url);
+      setStatusMessage("Processing recording...");
       allBlobsRef.current = [];
     }
   };
