@@ -1,12 +1,31 @@
-# React + Vite
+# 🗣️ Browser-side Speech-to-Text with Transformers.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates **speech-to-text (STT) running entirely in the browser**, built with **React + Vite** and [Transformers.js](https://github.com/xenova/transformers.js).  
+It uses the open-source model **[`Xenova/whisper-base`](https://huggingface.co/Xenova/whisper-base)**, a Web-friendly ONNX conversion of OpenAI’s Whisper.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Client-side inference**: Audio never leaves the browser – privacy-friendly and secure.
+- **Zero backend required**: Works directly with microphone input, no server needed.
+- **Hardware acceleration**: Automatically leverages **WebGPU** if available, falls back to WASM/CPU otherwise.
+- **Model flexibility**: Default model is `whisper-base`, but you can swap in `whisper-tiny`, `whisper-small`, or larger variants depending on speed vs. accuracy needs.
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+# Install dependencies
+npm install
+npm install @xenova/transformers
+
+# Run development server
+npm run dev
+
+```
+
+🌐 Live Demo
+
+Try it out directly in your browser (hosted via GitHub Pages):
+
+👉 [Quick Demo on GitHub Pages](https://nickdddddd.github.io/whisper-in-browser/)
+
+⚠️ First run will download model weights (~140 MB for whisper-base). They are cached locally after that.
